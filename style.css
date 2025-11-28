@@ -1,31 +1,37 @@
-/* Basic body & text */
+/* Apply Montserrat font to body and header */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
-  background: #f9f9f9;
+  background: #ffffff; /* white background */
   color: #333;
 }
 
-/* Header & Footer */
-header, footer {
+/* Header */
+header {
   text-align: center;
-  padding: 1.5rem;
-  background: #222;
-  color: #fff;
+  padding: 2rem;
 }
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Remove footer completely: delete or comment out previous footer rules */
 
 /* Gallery grid */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 2rem;
 }
 
 .gallery img {
-  width: 100%; /* fill the grid cell */
+  width: 100%;
   height: auto;
-  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -37,13 +43,13 @@ header, footer {
 /* Responsive layout */
 @media (max-width: 900px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .gallery {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -51,10 +57,7 @@ header, footer {
 .lightbox {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
@@ -68,7 +71,6 @@ header, footer {
 .lightbox-content {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 8px;
 }
 
 .close {
