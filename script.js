@@ -1,50 +1,67 @@
-const galleryImages = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-content');
-const closeBtn = document.querySelector('.close');
+// List all your images here
+const imageFiles = [
+  "000000010005-2.jpg",
+  "000000010007-2.jpg",
+  "000000010023-2.jpg",
+  "A000324-R1-37-36.jpg" // add new images here
+];
+
+const gallerySection = document.querySelector(".gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-content");
+const closeBtn = document.querySelector(".close");
 
 let currentIndex = 0;
 
+// Dynamically create gallery images
+imageFiles.forEach((filename, index) => {
+  const img = document.createElement("img");
+  img.src = `gallery/${filename}`;
+  img.alt = `Photo ${index + 1}`;
+  img.loading = "lazy";
+
+  // Click to open lightbox
+  img.addEventListener("click", () => openLightbox(index));
+
+  gallerySection.appendChild(img);
+});
+
+// Lightbox functions
 function openLightbox(index) {
   currentIndex = index;
-  lightboxImg.src = galleryImages[index].src;
-  lightbox.classList.add('show');
+  lightboxImg.src = gallerySection.children[index].src;
+  lightbox.classList.add("show");
   lightbox.style.pointerEvents = "auto";
 }
 
 function closeLightbox() {
-  lightbox.classList.remove('show');
+  lightbox.classList.remove("show");
   lightbox.style.pointerEvents = "none";
 }
 
-// Click image → open
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => openLightbox(index));
-});
-
 // Close button
-closeBtn.addEventListener('click', closeLightbox);
+closeBtn.addEventListener("click", closeLightbox);
 
-// Click background → close
-lightbox.addEventListener('click', e => {
+// Click outside image → close
+lightbox.addEventListener("click", e => {
   if (e.target === lightbox) closeLightbox();
 });
 
-// Keyboard controls
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('show')) return;
+// Keyboard navigation
+document.addEventListener("keydown", e => {
+  if (!lightbox.classList.contains("show")) return;
 
-  if (e.key === 'ArrowRight') {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
+  if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % gallerySection.children.length;
     openLightbox(currentIndex);
   }
 
-  if (e.key === 'ArrowLeft') {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  if (e.key === "ArrowLeft") {
+    currentIndex = (currentIndex - 1 + gallerySection.children.length) % gallerySection.children.length;
     openLightbox(currentIndex);
   }
 
-  if (e.key === 'Escape') {
+  if (e.key === "Escape") {
     closeLightbox();
   }
 });
