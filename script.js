@@ -19,6 +19,12 @@ const imageFiles = [
   "DSC08414.jpg"
 ];
 
+// Optional captions for images shown in the lightbox.
+// Keyed by filename (exact match). Add more captions here.
+const captions = {
+  "A000324-R1-06-5.jpg": "Black's Beach"
+};
+
 // Shuffle function to randomize photo order
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -32,6 +38,7 @@ function shuffleArray(array) {
 const gallerySection = document.querySelector(".gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-content") : null;
+const lightboxCaption = lightbox ? lightbox.querySelector(".lightbox-caption") : null;
 const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
 
 let currentIndex = 0;
@@ -61,6 +68,13 @@ function openLightbox(index) {
   if (gallerySection && gallerySection.children[index]) {
     lightboxImg.src = gallerySection.children[index].src;
   }
+  // set caption (if available)
+  if (lightboxCaption) {
+    const src = gallerySection && gallerySection.children[index] ? gallerySection.children[index].src : '';
+    const filename = src.split('/').pop();
+    lightboxCaption.textContent = captions[filename] || '';
+  }
+
   lightbox.classList.add("show");
   lightbox.style.pointerEvents = "auto";
 }
@@ -70,6 +84,7 @@ function closeLightbox() {
   if (!lightbox) return;
   lightbox.classList.remove("show");
   lightbox.style.pointerEvents = "none";
+  if (lightboxCaption) lightboxCaption.textContent = '';
 }
 
 // Close button

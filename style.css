@@ -301,6 +301,20 @@ main { display:block; }
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
+.lightbox-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+  z-index: 10000;
+  pointer-events: none;
+}
+
 .close {
   position: absolute;
   top: 1rem;
