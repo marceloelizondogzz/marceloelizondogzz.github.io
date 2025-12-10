@@ -309,8 +309,8 @@ main { display:block; }
   padding: 0.6rem 1rem;
   color: #fff;
   font-size: 0.95rem;
-  text-align: left;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.275) 100%); /* reduced opacity */
   z-index: 10000;
   pointer-events: none;
 }
