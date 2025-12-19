@@ -166,3 +166,16 @@ document.addEventListener("keydown", e => {
     closeLightbox();
   }
 });
+
+// Random homepage background image
+if (document.body.classList.contains('home')) {
+  const heroImages = [
+    'gallery/_DSC2191.jpg',
+    'gallery/_DSC0776-Pano_copy_2.jpeg'
+  ];
+  const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)];
+  const heroElement = document.querySelector('.hero');
+  if (heroElement) {
+    heroElement.style.backgroundImage = `url('${randomImage}')`;
+  }
+}
