@@ -98,6 +98,11 @@ if (gallerySection) {
     img.alt = `Photo ${index + 1}`;
     img.loading = "lazy";
 
+    // Add loaded class when image finishes loading
+    img.addEventListener("load", () => {
+      img.classList.add("loaded");
+    });
+
     // Click to open lightbox
     img.addEventListener("click", () => openLightbox(index));
 
