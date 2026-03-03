@@ -104,7 +104,6 @@ if (gallerySection) {
     const img = document.createElement("img");
     img.src = `gallery/${filename}`;
     img.alt = `Photo ${index + 1}`;
-    img.loading = "lazy";
 
     // Add loaded class when image finishes loading
     img.addEventListener("load", () => {

@@ -235,10 +235,9 @@ main { display:block; }
   break-inside: avoid;
 }
 
-/* Hover effect with slight scale + shadow */
+/* Hover effect - subtle shadow only */
 .gallery img:hover {
-  transform: scale(1.06);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Responsive: adjust column count */
