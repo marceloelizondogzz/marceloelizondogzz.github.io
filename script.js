@@ -73,15 +73,6 @@ const captions = {
   "A000324-R1-06-5.jpg": "Black's Beach",
 };
 
-// Shuffle function to randomize photo order
-function shuffleArray(array) {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 // DOM elements (may be absent on pages without a gallery)
 const gallerySection = document.querySelector(".gallery");
 const lightbox = document.getElementById("lightbox");
@@ -97,10 +88,8 @@ let currentIndex = 0;
 
 // Only populate the gallery when a .gallery element exists on the page
 if (gallerySection) {
-  const shuffledImages = shuffleArray(imageFiles);
-
   // Dynamically create gallery images
-  shuffledImages.forEach((filename, index) => {
+  imageFiles.forEach((filename, index) => {
     const img = document.createElement("img");
     img.src = `gallery/${filename}`;
     img.alt = `Photo ${index + 1}`;
