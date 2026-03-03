@@ -222,8 +222,7 @@ main { display:block; }
   opacity: 1;
   background: transparent;
   transition: box-shadow 0.3s ease;
-  aspect-ratio: 3/4;
-  min-height: 400px;
+  min-height: 300px;
 }
 
 /* Remove min-height once image is loaded */
