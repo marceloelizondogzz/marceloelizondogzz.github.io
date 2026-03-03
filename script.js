@@ -1,6 +1,10 @@
 // --- GALLERY IMAGE FILES ---
 // Add any new image filename here (in the gallery/ folder)
 const imageFiles = [
+  "00102.jpg",
+  "DSC01338.jpg",
+  "DSC01345.jpg",
+  "DSC01641-Pano.jpg",
   "000000010003-2.jpg",
   "000000010005-2-2.jpg",
   "000000010005-2.jpg",
@@ -60,13 +64,13 @@ const imageFiles = [
   "_DSC1310 2.jpg",
   "_DSC1302 2.jpg",
   "_DSC1111.jpg",
-  "_DSC0062.jpg"
+  "_DSC0062.jpg",
 ];
 
 // Optional captions for images shown in the lightbox.
 // Keyed by filename (exact match). Add more captions here.
 const captions = {
-  "A000324-R1-06-5.jpg": "Black's Beach"
+  "A000324-R1-06-5.jpg": "Black's Beach",
 };
 
 // Shuffle function to randomize photo order
@@ -81,8 +85,12 @@ function shuffleArray(array) {
 // DOM elements (may be absent on pages without a gallery)
 const gallerySection = document.querySelector(".gallery");
 const lightbox = document.getElementById("lightbox");
-const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-content") : null;
-const lightboxCaption = lightbox ? lightbox.querySelector(".lightbox-caption") : null;
+const lightboxImg = lightbox
+  ? lightbox.querySelector(".lightbox-content")
+  : null;
+const lightboxCaption = lightbox
+  ? lightbox.querySelector(".lightbox-caption")
+  : null;
 const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
 
 let currentIndex = 0;
@@ -119,9 +127,12 @@ function openLightbox(index) {
   }
   // set caption (if available)
   if (lightboxCaption) {
-    const src = gallerySection && gallerySection.children[index] ? gallerySection.children[index].src : '';
-    const filename = src.split('/').pop();
-    lightboxCaption.textContent = captions[filename] || '';
+    const src =
+      gallerySection && gallerySection.children[index]
+        ? gallerySection.children[index].src
+        : "";
+    const filename = src.split("/").pop();
+    lightboxCaption.textContent = captions[filename] || "";
   }
 
   lightbox.classList.add("show");
@@ -133,7 +144,7 @@ function closeLightbox() {
   if (!lightbox) return;
   lightbox.classList.remove("show");
   lightbox.style.pointerEvents = "none";
-  if (lightboxCaption) lightboxCaption.textContent = '';
+  if (lightboxCaption) lightboxCaption.textContent = "";
 }
 
 // Close button
@@ -141,13 +152,13 @@ if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
 
 // Click outside image → close (guarded)
 if (lightbox) {
-  lightbox.addEventListener("click", e => {
+  lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 }
 
 // Keyboard navigation (only when lightbox is present)
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", (e) => {
   if (!lightbox || !lightbox.classList.contains("show")) return;
 
   if (e.key === "ArrowRight") {
@@ -158,7 +169,9 @@ document.addEventListener("keydown", e => {
 
   if (e.key === "ArrowLeft") {
     if (!gallerySection) return;
-    currentIndex = (currentIndex - 1 + gallerySection.children.length) % gallerySection.children.length;
+    currentIndex =
+      (currentIndex - 1 + gallerySection.children.length) %
+      gallerySection.children.length;
     openLightbox(currentIndex);
   }
 
@@ -166,16 +179,3 @@ document.addEventListener("keydown", e => {
     closeLightbox();
   }
 });
-
-// Random homepage background image
-if (document.body.classList.contains('home')) {
-  const heroImages = [
-    'gallery/_DSC2191.jpg',
-    'gallery/_DSC0776-Pano_copy_2.jpeg'
-  ];
-  const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)];
-  const heroElement = document.querySelector('.hero');
-  if (heroElement) {
-    heroElement.style.backgroundImage = `url('${randomImage}')`;
-  }
-}
