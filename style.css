@@ -103,6 +103,85 @@ body.photography .site-links a:hover {
   opacity: 0.5;
 }
 
+/* Nav dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  min-width: 100px;
+  z-index: 100;
+  padding: 0.4rem 0;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  display: flex;
+}
+
+.nav-dropdown-menu a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding: 0.35rem 1rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+body.photography .nav-dropdown-label {
+  color: #111;
+}
+
+body.photography .nav-dropdown-menu {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.photography .nav-dropdown-menu a {
+  color: #111;
+}
+
+body.photography .nav-dropdown-menu a:hover {
+  opacity: 0.5;
+}
+
+body.home .nav-dropdown-label {
+  color: #fff;
+}
+
+body.home .nav-dropdown-label:hover {
+  opacity: 0.65;
+}
+
+body.home .nav-dropdown-menu {
+  background: rgba(0,0,0,0.65);
+}
+
+body.home .nav-dropdown-menu a {
+  color: #fff;
+}
+
+body.home .nav-dropdown-menu a:hover {
+  opacity: 0.65;
+}
+
 /* Mobile nav */
 @media (max-width: 768px) {
   .site-nav {
@@ -123,6 +202,31 @@ body.photography .site-links a:hover {
   }
 
   .site-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-dropdown {
+    display: contents;
+  }
+
+  .nav-dropdown-label {
+    display: none;
+  }
+
+  .nav-dropdown-menu {
+    display: flex !important;
+    position: static;
+    transform: none;
+    flex-direction: row;
+    gap: 0.6rem 1.4rem;
+    padding: 0;
+    background: none !important;
+    border: none !important;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0;
     font-size: 0.7rem;
     letter-spacing: 0.08em;
   }
