@@ -185,53 +185,114 @@ body.home .nav-dropdown-menu a:hover {
   opacity: 0.65;
 }
 
+/* Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+body.photography .hamburger { color: #111; }
+body.home .hamburger        { color: #fff; }
+
 /* Mobile nav */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
   .site-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 1.2rem 1.5rem;
+    position: relative;
   }
 
   .site-name {
     font-size: 1.1rem;
   }
 
+  /* Hidden by default; shown when .site-nav.open */
   .site-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.5rem 1.5rem;
+    z-index: 200;
+  }
+
+  .site-nav.open .site-links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.4rem;
   }
 
-  .site-links a {
-    font-size: 0.7rem;
+  body.photography .site-nav.open .site-links {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+  body.home .site-nav.open .site-links {
+    background: rgba(0,0,0,0.88);
+  }
+
+  .site-links > a {
+    font-size: 0.95rem;
     letter-spacing: 0.08em;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
   }
 
+  body.home .site-links > a {
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  /* Dropdowns inside mobile menu */
   .nav-dropdown {
-    display: contents;
+    display: block;
   }
 
   .nav-dropdown-label {
-    display: none;
+    display: block;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer;
+  }
+
+  body.home .nav-dropdown-label {
+    border-bottom-color: rgba(255,255,255,0.1);
   }
 
   .nav-dropdown-menu {
-    display: flex !important;
-    position: static;
-    transform: none;
-    flex-direction: row;
-    gap: 0.6rem 1.4rem;
-    padding: 0;
+    display: none;
+    position: static !important;
+    transform: none !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 0 0 1rem !important;
     background: none !important;
     border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: flex !important;
   }
 
   .nav-dropdown-menu a {
-    padding: 0;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+    text-align: left;
+    border-bottom: none;
   }
 }
 
