@@ -1,4 +1,5 @@
 const imageFiles = [
+  "_DSC4180.jpg",
   "_DSC4184.jpg",
   "_DSC4192.jpg",
   "_DSC4211-Pano.jpg",
@@ -8,6 +9,19 @@ const imageFiles = [
   "_DSC4288-2-Pano.jpg",
   "_DSC4289-2-Pano.jpg",
   "_DSC4291-2-Pano.jpg",
+  "000000010003-2.jpg",
+  "000000010005-2-2.jpg",
+  "000000010005-2.jpg",
+  "000000010012-2.jpg",
+  "000000010021.jpg",
+  "A000324-R1-06-5.jpg",
+  "A000324-R1-37-36.jpg",
+  "A000325-R1-30-29A.jpg",
+  "DSC01641-Pano.jpg",
+  "DSC03484-Pano.jpg",
+  "DSC03497-Pano.jpg",
+  "01.jpg",
+  "00103.jpg",
 ];
 const captions = {};
 

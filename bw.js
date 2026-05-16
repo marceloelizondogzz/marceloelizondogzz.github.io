@@ -1,11 +1,8 @@
 const imageFiles = [
-  "DJI_0048-Edit copy.jpg",
-  "HYPERLAPSE_0202.jpg",
-  "_DSC1302 2.jpg",
-  "_DSC3799.jpg",
+  "_DSC4180.jpg",
   "_DSC4184.jpg",
   "_DSC4192.jpg",
-  "_DSC7564.jpg",
+  "01.jpg",
 ];
 
 const captions = {};

@@ -1,4 +1,21 @@
-const imageFiles = [];
+const imageFiles = [
+  "_DSC0776-Pano_copy_2.jpeg",
+  "_DSC1111.jpg",
+  "_DSC1302 2.jpg",
+  "_DSC1310 2.jpg",
+  "_DSC1354.jpg",
+  "_DSC2191.jpg",
+  "_DSC7564.jpg",
+  "_DSC3799.jpg",
+  "DJI_0048-Edit copy.jpg",
+  "DJI_0174 copy 2-2.jpg",
+  "DJI_0473 copy.jpg",
+  "DJI_0578.jpg",
+  "DJI_20250628110637_0189_D.jpg",
+  "DSC01338.jpg",
+  "DSC07410.jpg",
+  "Marruecos 2025-94.jpg",
+];
 const captions = {};
 
 const gallerySection = document.querySelector(".gallery");

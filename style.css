@@ -398,20 +398,20 @@ main { display:block; }
 
 /* Journal post */
 .journal-post {
-  max-width: 680px;
-  margin: 3rem auto;
+  max-width: 740px;
+  margin: 3rem auto 6rem;
   padding: 0 2rem;
 }
 
 .journal-back {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 300;
-  letter-spacing: 0.05em;
-  color: #999;
+  letter-spacing: 0.08em;
+  color: #aaa;
   text-decoration: none;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .journal-back:hover {
@@ -421,36 +421,99 @@ main { display:block; }
 .journal-post h1 {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 600;
-  margin: 0 0 0.5rem;
-  line-height: 1.2;
+  margin: 0 0 0.6rem;
+  line-height: 1.15;
+  color: #111;
+}
+
+.journal-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #666;
+  margin: 0 0 1.5rem;
 }
 
 .journal-meta {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 300;
-  letter-spacing: 0.1em;
-  color: #999;
+  letter-spacing: 0.12em;
+  color: #bbb;
   text-transform: uppercase;
-  margin: 0 0 2.5rem;
+  margin: 0 0 3.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
 .journal-post p {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.97rem;
   font-weight: 300;
-  line-height: 1.9;
-  color: #333;
-  margin: 0 0 1.5rem;
+  line-height: 2;
+  color: #2a2a2a;
+  margin: 0 0 1.8rem;
 }
 
+.journal-post p em {
+  font-style: italic;
+  color: #444;
+}
+
+/* Full-width photo */
 .journal-photo {
   width: 100%;
   height: auto;
-  margin: 2rem 0;
   display: block;
+  margin: 3rem 0;
+}
+
+/* Two photos side by side */
+.journal-photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 3rem 0;
+}
+
+.journal-photo-pair img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Photo caption */
+.journal-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  text-align: center;
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+}
+
+/* Section divider */
+.journal-divider {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  margin: 3rem 0;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .journal-post h1 {
+    font-size: 2.2rem;
+  }
+  .journal-photo-pair {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Lightbox overlay */
