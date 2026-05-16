@@ -127,6 +127,8 @@ body.photography .site-links a:hover {
   min-width: 100px;
   z-index: 100;
   padding: 0.6rem 0 0.4rem;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .nav-dropdown.open .nav-dropdown-menu {
