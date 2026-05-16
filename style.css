@@ -120,13 +120,13 @@ body.photography .site-links a:hover {
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 0.6rem);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   flex-direction: column;
   min-width: 100px;
   z-index: 100;
-  padding: 0.4rem 0;
+  padding: 0.6rem 0 0.4rem;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
