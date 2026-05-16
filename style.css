@@ -54,12 +54,12 @@ header {
 }
 
 .site-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 300;
   font-size: 1.65rem;
   text-decoration: none;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
 }
 
 .site-links {
@@ -103,12 +103,28 @@ body.photography .site-links a:hover {
   opacity: 0.5;
 }
 
-@media (max-width: 600px) {
+/* Mobile nav */
+@media (max-width: 768px) {
   .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
     padding: 1.2rem 1.5rem;
   }
+
+  .site-name {
+    font-size: 1.1rem;
+  }
+
   .site-links {
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+  }
+
+  .site-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
   }
 }
 
@@ -329,6 +345,112 @@ main { display:block; }
     column-span: auto;
     min-height: 200px;
   }
+}
+
+/* Journal index */
+.journal-index {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.journal-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2rem;
+}
+
+.journal-entry:hover .journal-title {
+  opacity: 0.6;
+}
+
+.journal-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.journal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.journal-excerpt {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Journal post */
+.journal-post {
+  max-width: 680px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.journal-back {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #999;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+
+.journal-back:hover {
+  color: #333;
+}
+
+.journal-post h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.journal-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #999;
+  text-transform: uppercase;
+  margin: 0 0 2.5rem;
+}
+
+.journal-post p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #333;
+  margin: 0 0 1.5rem;
+}
+
+.journal-photo {
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  display: block;
 }
 
 /* Lightbox overlay */
