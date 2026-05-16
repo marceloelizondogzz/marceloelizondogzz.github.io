@@ -42,7 +42,74 @@ body.photography {
 /* Header */
 header {
   text-align: center;
-  padding: 2rem 3rem; /* more spacing from edges */
+  padding: 2rem 3rem;
+}
+
+/* Site-wide top nav */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+}
+
+.site-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.65rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.site-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+/* Home page: nav floats over the hero */
+body.home .site-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+body.home .site-name,
+body.home .site-links a {
+  color: #fff;
+}
+
+body.home .site-links a:hover {
+  opacity: 0.65;
+}
+
+/* Photography / B&W pages */
+body.photography .site-name,
+body.photography .site-links a {
+  color: #111;
+}
+
+body.photography .site-links a:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    padding: 1.2rem 1.5rem;
+  }
+  .site-links {
+    gap: 1.5rem;
+  }
 }
 
 header h1 {
@@ -251,8 +318,8 @@ main { display:block; }
 
 @media (max-width: 600px) {
   .gallery {
-    column-count: 2;
-    column-gap: 0.75rem;
+    column-count: 1;
+    column-gap: 0;
     padding: 1rem 1rem; /* more space on mobile edges */
   }
 
@@ -260,6 +327,7 @@ main { display:block; }
     margin-bottom: 0.75rem;
     break-inside: avoid;
     column-span: auto;
+    min-height: 200px;
   }
 }
 

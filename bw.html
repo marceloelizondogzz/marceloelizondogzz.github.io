@@ -12,18 +12,11 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <title>Marcelo Elizondo Gzz</title>
-  <!-- Force rebuild -->
-
-  <!-- Google Fonts -->
+  <title>B&W — Marcelo Elizondo Gzz</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css?v=1.3" />
 </head>
-<body class="home">
+<body class="photography">
   <header>
     <nav class="site-nav">
       <a class="site-name" href="index.html">Marcelo Elizondo Gzz</a>
@@ -32,19 +25,21 @@
         <a href="bw.html">B&amp;W</a>
       </div>
     </nav>
-    <section class="hero"></section>
   </header>
 
   <main>
-    <!-- Home page: single full-bleed hero image above, no gallery on this page -->
+    <section class="gallery">
+      <!-- Images loaded dynamically by script.js -->
+    </section>
   </main>
 
   <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <img class="lightbox-content" src="" alt="Enlarged photo">
+    <div class="lightbox-caption" aria-live="polite"></div>
   </div>
 
-  <script src="script.js?v=1.3"></script>
+  <script src="bw.js?v=1.0"></script>
 </body>
 </html>

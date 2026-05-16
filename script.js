@@ -65,6 +65,16 @@ const imageFiles = [
   "_DSC1302 2.jpg",
   "_DSC1111.jpg",
   "_DSC0062.jpg",
+  "_DSC4184.jpg",
+  "_DSC4192.jpg",
+  "_DSC4211-Pano.jpg",
+  "_DSC4212-Pano.jpg",
+  "_DSC4221-Pano.jpg",
+  "_DSC4223-Pano.jpg",
+  "_DSC4288-2-Pano.jpg",
+  "_DSC4289-2-Pano.jpg",
+  "_DSC4291-2-Pano.jpg",
+  "DSC03484-Pano.jpg",
 ];
 
 // Optional captions for images shown in the lightbox.
@@ -86,6 +96,12 @@ const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
 
 let currentIndex = 0;
 
+// Shuffle array in place (Fisher-Yates)
+for (let i = imageFiles.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
+}
+
 // Only populate the gallery when a .gallery element exists on the page
 if (gallerySection) {
   // Dynamically create gallery images
@@ -93,6 +109,7 @@ if (gallerySection) {
     const img = document.createElement("img");
     img.src = `gallery/${filename}`;
     img.alt = `Photo ${index + 1}`;
+    img.loading = "lazy";
 
     // Add loaded class when image finishes loading
     img.addEventListener("load", () => {
