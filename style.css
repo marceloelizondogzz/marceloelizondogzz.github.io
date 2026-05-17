@@ -548,10 +548,10 @@ main { display:block; }
 
 /* Project featured photo */
 .project-featured-photo {
-  width: 100%;
+  width: 60%;
   height: auto;
   display: block;
-  margin: 2rem 0;
+  margin: 2rem auto;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.5s ease;
