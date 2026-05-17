@@ -542,6 +542,7 @@ main { display:block; }
   line-height: 2;
   color: #2a2a2a;
   margin: 0;
+  margin-left: 32%;
   text-align: justify;
 }
 
