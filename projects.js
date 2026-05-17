@@ -31,9 +31,9 @@ let allImages = [];
 let currentIndex = 0;
 
 if (gallerySection) {
-  // First shuffled photo — full width featured image
+  // Fixed featured photo — always this image
   const featured = document.createElement("img");
-  featured.src = `gallery/${imageFiles[0]}`;
+  featured.src = `gallery/DJI_20240216021501_0034_D-Pano.jpg`;
   featured.alt = "Featured photo";
   featured.className = "project-featured-photo";
   featured.loading = "lazy";
@@ -42,8 +42,8 @@ if (gallerySection) {
   gallerySection.parentNode.insertBefore(featured, gallerySection);
   allImages.push(featured);
 
-  // Remaining photos in 3-column gallery
-  imageFiles.slice(1).forEach((filename, idx) => {
+  // Shuffled photos in 3-column gallery
+  imageFiles.forEach((filename, idx) => {
     const img = document.createElement("img");
     img.src = `gallery/${filename}`;
     img.alt = `Photo ${idx + 2}`;
