@@ -591,6 +591,61 @@ main { display:block; }
   opacity: 1;
 }
 
+/* Project fullscreen lightbox */
+.proj-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 3%;
+}
+
+.proj-lightbox.show {
+  display: flex;
+}
+
+.proj-lb-img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.proj-lb-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.proj-lb-btn:hover {
+  color: #fff;
+}
+
+.proj-lb-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.proj-lb-close:hover {
+  color: #fff;
+}
+
 /* Journal index */
 .journal-index {
   max-width: 720px;
