@@ -8,78 +8,46 @@ const imageFiles = [
   "DJI_20231123074757_0112_D.jpg",
   "DJI_20231123075000_0129_D.jpg",
   "DJI_20240216021345_0021_D.jpg",
+  "DJI_20240216021501_0034_D-Pano.jpg",
   "DJI_20240216021501_0034_D.jpg",
   "DJI_20240216021509_0035_D.jpg",
   "DJI_20240216022713_0103_D.jpg",
   "DJI_20240216031503_0146_D.jpg",
   "DJI_20240216031651_0170_D.jpg",
 ];
-const captions = {};
 
 for (let i = imageFiles.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
 }
 
-const gallerySection = document.querySelector(".gallery");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-content") : null;
-const lightboxCaption = lightbox ? lightbox.querySelector(".lightbox-caption") : null;
-const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
-
-let allImages = [];
 let currentIndex = 0;
 
-if (gallerySection) {
-  // Fixed featured photo — always this image
-  const featured = document.createElement("img");
-  featured.src = `gallery/DJI_20240216021501_0034_D-Pano.jpg`;
-  featured.alt = "Featured photo";
-  featured.className = "project-featured-photo";
-  featured.loading = "lazy";
-  featured.addEventListener("load", () => featured.classList.add("loaded"));
-  featured.addEventListener("click", () => openLightbox(0));
-  gallerySection.parentNode.insertBefore(featured, gallerySection);
-  allImages.push(featured);
+const img     = document.querySelector(".carousel-img");
+const prevBtn = document.querySelector(".carousel-prev");
+const nextBtn = document.querySelector(".carousel-next");
 
-  // Shuffled photos in 3-column gallery
-  imageFiles.forEach((filename, idx) => {
-    const img = document.createElement("img");
-    img.src = `gallery/${filename}`;
-    img.alt = `Photo ${idx + 2}`;
-    img.loading = "lazy";
-    img.addEventListener("load", () => img.classList.add("loaded"));
-    img.addEventListener("click", () => openLightbox(idx + 1));
-    gallerySection.appendChild(img);
-    allImages.push(img);
-  });
+function showPhoto(index) {
+  img.style.opacity = 0;
+  setTimeout(() => {
+    img.src = `gallery/${imageFiles[index]}`;
+    img.onload = () => { img.style.opacity = 1; };
+  }, 200);
 }
 
-function openLightbox(index) {
-  if (!lightbox || !lightboxImg) return;
-  currentIndex = index;
-  lightboxImg.src = allImages[index].src;
-  if (lightboxCaption) {
-    const filename = allImages[index].src.split("/").pop();
-    lightboxCaption.textContent = captions[filename] || "";
-  }
-  lightbox.classList.add("show");
-  lightbox.style.pointerEvents = "auto";
-}
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + imageFiles.length) % imageFiles.length;
+  showPhoto(currentIndex);
+});
 
-function closeLightbox() {
-  if (!lightbox) return;
-  lightbox.classList.remove("show");
-  lightbox.style.pointerEvents = "none";
-  if (lightboxCaption) lightboxCaption.textContent = "";
-}
-
-if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
-if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % imageFiles.length;
+  showPhoto(currentIndex);
+});
 
 document.addEventListener("keydown", (e) => {
-  if (!lightbox || !lightbox.classList.contains("show")) return;
-  if (e.key === "ArrowRight") { currentIndex = (currentIndex + 1) % allImages.length; openLightbox(currentIndex); }
-  if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + allImages.length) % allImages.length; openLightbox(currentIndex); }
-  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") nextBtn.click();
+  if (e.key === "ArrowLeft")  prevBtn.click();
 });
+
+showPhoto(0);
