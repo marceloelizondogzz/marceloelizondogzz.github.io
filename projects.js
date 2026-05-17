@@ -1,6 +1,7 @@
 const imageFiles = [
   "_DSC0776-Pano_copy_2.jpeg",
   "_DSC7898.jpg",
+  "_DSC3930.jpg",
   "3BF33B03-6837-43C4-8C06-5875263BD505.jpg",
   "DEFF9EF5-A3AE-4D5F-A594-6C572957674A.jpg",
   "DJI_0041.jpg",
@@ -12,7 +13,6 @@ const imageFiles = [
   "DJI_20240216022713_0103_D.jpg",
   "DJI_20240216031503_0146_D.jpg",
   "DJI_20240216031651_0170_D.jpg",
-  "_DSC3930.jpg",
 ];
 const captions = {};
 
@@ -27,28 +27,40 @@ const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-content") : nul
 const lightboxCaption = lightbox ? lightbox.querySelector(".lightbox-caption") : null;
 const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
 
+let allImages = [];
 let currentIndex = 0;
 
 if (gallerySection) {
-  imageFiles.forEach((filename, index) => {
+  // First shuffled photo — full width featured image
+  const featured = document.createElement("img");
+  featured.src = `gallery/${imageFiles[0]}`;
+  featured.alt = "Featured photo";
+  featured.className = "project-featured-photo";
+  featured.loading = "lazy";
+  featured.addEventListener("load", () => featured.classList.add("loaded"));
+  featured.addEventListener("click", () => openLightbox(0));
+  gallerySection.parentNode.insertBefore(featured, gallerySection);
+  allImages.push(featured);
+
+  // Remaining photos in 3-column gallery
+  imageFiles.slice(1).forEach((filename, idx) => {
     const img = document.createElement("img");
     img.src = `gallery/${filename}`;
-    img.alt = `Photo ${index + 1}`;
+    img.alt = `Photo ${idx + 2}`;
     img.loading = "lazy";
     img.addEventListener("load", () => img.classList.add("loaded"));
-    img.addEventListener("click", () => openLightbox(index));
+    img.addEventListener("click", () => openLightbox(idx + 1));
     gallerySection.appendChild(img);
+    allImages.push(img);
   });
 }
 
 function openLightbox(index) {
   if (!lightbox || !lightboxImg) return;
   currentIndex = index;
-  if (gallerySection && gallerySection.children[index]) {
-    lightboxImg.src = gallerySection.children[index].src;
-  }
+  lightboxImg.src = allImages[index].src;
   if (lightboxCaption) {
-    const filename = (gallerySection.children[index]?.src || "").split("/").pop();
+    const filename = allImages[index].src.split("/").pop();
     lightboxCaption.textContent = captions[filename] || "";
   }
   lightbox.classList.add("show");
@@ -67,7 +79,7 @@ if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === light
 
 document.addEventListener("keydown", (e) => {
   if (!lightbox || !lightbox.classList.contains("show")) return;
-  if (e.key === "ArrowRight") { currentIndex = (currentIndex + 1) % gallerySection.children.length; openLightbox(currentIndex); }
-  if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + gallerySection.children.length) % gallerySection.children.length; openLightbox(currentIndex); }
+  if (e.key === "ArrowRight") { currentIndex = (currentIndex + 1) % allImages.length; openLightbox(currentIndex); }
+  if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + allImages.length) % allImages.length; openLightbox(currentIndex); }
   if (e.key === "Escape") closeLightbox();
 });
