@@ -12,6 +12,7 @@ const imageFiles = [
   "DJI_20240216022713_0103_D.jpg",
   "DJI_20240216031503_0146_D.jpg",
   "DJI_20240216031651_0170_D.jpg",
+  "_DSC3930.jpg",
 ];
 const captions = {};
 
