@@ -19,11 +19,6 @@ const imageFiles = [
   "DJI_20240216031651_0170_D.jpg",
 ];
 
-for (let i = imageFiles.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
-}
-
 let currentIndex = 0;
 
 // Carousel elements

@@ -101,12 +101,6 @@ const closeBtn = lightbox ? lightbox.querySelector(".close") : null;
 
 let currentIndex = 0;
 
-// Shuffle array in place (Fisher-Yates)
-for (let i = imageFiles.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
-}
-
 // Only populate the gallery when a .gallery element exists on the page
 if (gallerySection) {
   // Dynamically create gallery images

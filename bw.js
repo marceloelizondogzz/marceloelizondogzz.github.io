@@ -8,11 +8,6 @@ const imageFiles = [
 
 const captions = {};
 
-for (let i = imageFiles.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
-}
-
 const gallerySection = document.querySelector(".gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-content") : null;
