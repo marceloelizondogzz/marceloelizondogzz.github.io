@@ -460,6 +460,9 @@ header h1 {
 /* Ensure gallery starts below the hero when present */
 main { display:block; }
 
+/* Shareable no-nav view: append ?menu=0 to the URL */
+body.no-nav header { display: none; }
+
 @media (max-height: 700px) {
   .hero { height: 60vh; }
 }
