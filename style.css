@@ -463,6 +463,9 @@ main { display:block; }
 /* Shareable no-nav view: append ?menu=0 to the URL */
 body.no-nav header { display: none; }
 
+/* Journal tab temporarily disabled */
+.nav-dropdown-journal { display: none; }
+
 @media (max-height: 700px) {
   .hero { height: 60vh; }
 }
