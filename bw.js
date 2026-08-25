@@ -3,6 +3,7 @@ const imageFiles = [
   "_DSC4184.jpg",
   "_DSC4192.jpg",
   "01.jpg",
+  "DSC03594-Pano.jpg",
 ];
 
 const captions = {};
